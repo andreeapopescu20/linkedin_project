@@ -23,7 +23,7 @@ public class LinkedinTest {
     public void before(){
         driver = new FirefoxDriver();
         driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
         logInPage = PageFactory.initElements(driver, LogInPage.class);
     }
 
@@ -32,6 +32,8 @@ public class LinkedinTest {
     {
         HomePage homePage = logInPage.accountLogIn();
         ResultsPage resultsPage = homePage.searchContact();
-        resultsPage.navigateToEmployeePage();
+        EmployeePage employeePage = resultsPage.navigateToEmployeePage();
+        employeePage.checkCandidate();
+
     }
 }

@@ -34,7 +34,7 @@ public class LogInPage {
 
         ReadData objExcelFile = new ReadData();
 
-        Admins admin = (Admins) objExcelFile.readExcel("C:\\Users\\andpopescu\\IdeaProjects\\HRProject\\src\\main\\resources", "test.xls", "Admin");
+        Admins admin = (Admins) objExcelFile.readExcel("test.xls", "Admin");
         {
             loginField.sendKeys(admin.getEmail());
             passwordField.sendKeys(admin.getPassword());
