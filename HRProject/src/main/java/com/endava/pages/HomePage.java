@@ -1,6 +1,5 @@
 package com.endava.pages;
 
-import com.gargoylesoftware.htmlunit.Page;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -25,12 +24,14 @@ public class HomePage {
     @FindBy(xpath = "//button[@class = 'search-button']")
     private WebElement searchButton;
 
-    public ResultsPage searchContact()throws IOException{
+    public List<String> getContactsList()throws IOException{
         ReadData objExcelFile = new ReadData();
-        List<Employees> contacts = (List<Employees>) objExcelFile.readExcel("test.xls", "Sheet1");
-        //System.out.println(contact.getFirstName() + " " +contact.getLastName());
+        List<String> contacts = (List<String>) objExcelFile.readExcel("test.xls", "Sheet1");
+        return contacts;
+    }
 
-        searchField.sendKeys(contacts.get(0).getFirstName() + " " +contacts.get(0).getLastName());
+    public ResultsPage searchContact(String contact)throws IOException{
+        searchField.sendKeys(contact);
         searchButton.click();
         ResultsPage resultsPage = PageFactory.initElements(driver, ResultsPage.class);
         return resultsPage;

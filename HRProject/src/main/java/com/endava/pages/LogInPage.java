@@ -1,9 +1,7 @@
 package com.endava.pages;
 
-import com.gargoylesoftware.htmlunit.Page;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.remote.html5.AddApplicationCache;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
@@ -31,11 +29,8 @@ public class LogInPage {
     private WebElement signInButton;
 
     public HomePage accountLogIn() throws IOException{
-
         ReadData objExcelFile = new ReadData();
-
-        Admins admin = (Admins) objExcelFile.readExcel("test.xls", "Admin");
-        {
+        Admins admin = (Admins) objExcelFile.readExcel("test.xls", "Admin");{
             loginField.sendKeys(admin.getEmail());
             passwordField.sendKeys(admin.getPassword());
         }
@@ -43,5 +38,4 @@ public class LogInPage {
         HomePage homePage = PageFactory.initElements(driver, HomePage.class);
         return homePage;
     }
-
 }

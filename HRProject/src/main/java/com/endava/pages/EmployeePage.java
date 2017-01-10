@@ -3,6 +3,7 @@ package com.endava.pages;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
 
 import java.util.List;
 
@@ -16,12 +17,16 @@ public class EmployeePage {
         this.driver = driver;
     }
 
-    //@FindBy(xpath = "//li[contains(@id,'connection-')]/strong/span/strong/a")
+    @FindBy(xpath = "//div[@class='member-connections']/strong/a")
+    private WebElement connectionButton;
+
     @FindBy(xpath = "//a[@class='connections-name']")
     private List<WebElement> candidates;
 
-    public void checkCandidate(){
-        System.out.println(candidates.get(0).getText());
+    public CandidatePage checkCandidate(){
+        connectionButton.click();
         candidates.get(0).click();
+        CandidatePage candidatePage = PageFactory.initElements(driver, CandidatePage.class);
+        return candidatePage;
     }
 }
