@@ -22,7 +22,7 @@ public class LinkedinTest {
     private WriteData writeData;
 
     @Before
-    public void before(){
+    public void before() {
         //driver = new FirefoxDriver();
         System.setProperty("webdriver.chrome.driver", "C:\\Users\\andpopescu\\Documents\\Drivers\\chromedriver.exe");
         driver = new ChromeDriver();
@@ -40,12 +40,8 @@ public class LinkedinTest {
         for (String contact : contacts) {
             ResultsPage resultsPage = homePage.searchContact(contact);
             EmployeePage employeePage = resultsPage.navigateToEmployeePage();
-            CandidatePage candidatePage = employeePage.checkCandidate();
-            Candidate candidate = candidatePage.checkSkills(contact);
-            candidates.add(candidate);
-            //System.out.println(candidate.getName() +": " + candidate.getContactPerson() + ", Skilluri: "+ candidate.getSkills());
+            candidates = employeePage.checkCandidate();
         }
-
         writeData = new WriteData();
         Map<Integer, Object[]> data = new HashMap<>();
         data.put(1, new Object[] {"Candidate Name", "Contact Person", "Skills"});
@@ -55,5 +51,7 @@ public class LinkedinTest {
         }
         writeData.writeExcel(data);
     }
+
 }
+
 

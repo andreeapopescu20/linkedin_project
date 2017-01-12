@@ -28,7 +28,6 @@ public class ResultsPage {
     private WebElement resultsNextButton;
 
 
-
     public EmployeePage navigateToEmployeePage() throws InterruptedException {
         boolean nextButtonPresent;
         do {

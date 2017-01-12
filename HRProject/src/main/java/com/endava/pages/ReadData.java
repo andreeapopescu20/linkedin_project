@@ -63,21 +63,6 @@ public class ReadData {
     }
 }
 
-/*
-    public static void main(String arg[]) throws IOException {
-        ReadData objExcelFile = new ReadData();
-        List<String> contacts = (List<String>) objExcelFile.readExcel("test.xls", "Sheet1");
-        for (String contact : contacts) {
-            System.out.println(contact);
-        }
-        List<KeyWords> skills = (List<KeyWords>) objExcelFile.readExcel("test.xls", "Sheet2");
-        System.out.println(skills.size());
-        for (KeyWords skill : skills) {
-            System.out.println(skill.getSkill());
-        }
-
-    }
-*/
 
 
 

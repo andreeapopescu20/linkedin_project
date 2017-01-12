@@ -31,7 +31,7 @@ public class CandidatePage {
     @FindBy(xpath = "//span[@class='more-text']")
     private WebElement showMoreButton;
 
-    public Candidate checkSkills(String contact) throws IOException {
+    public Candidate checkSkills() throws IOException {
         ReadData objExcelFile = new ReadData();
         List<String> keyWords = (List<String>) objExcelFile.readExcel("test.xls", "Sheet2");
         candidate = new Candidate();
@@ -58,10 +58,9 @@ public class CandidatePage {
             }
         }
         candidate.setName(candidateName.getText());
-        candidate.setContactPerson(contact);
+        candidate.setContactPerson("TODO");
         candidate.setSkills(machingSkills);
         return candidate;
-
     }
 }
 
