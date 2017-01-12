@@ -33,13 +33,4 @@ public class Candidate {
     public void setSkills(List<String> skills){
         this.skills = skills;
     }
-
-
-
-
-
-
-
-
-
 }

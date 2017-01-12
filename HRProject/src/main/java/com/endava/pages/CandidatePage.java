@@ -1,5 +1,7 @@
 package com.endava.pages;
 
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -36,10 +38,21 @@ public class CandidatePage {
 
         List<String> machingSkills = new ArrayList<>();
 
+        boolean present;
+
+           try {
+               showMoreButton.isDisplayed();
+               present = true;
+           } catch (NoSuchElementException e){
+               present = false;
+           }
+
+        if(present==true)
+        {
+            showMoreButton.click();
+        }
         for (WebElement skill : candidateSkills) {
-            if(showMoreButton.isDisplayed()){
-                showMoreButton.click();
-            }
+
             if (keyWords.contains(skill.getText())) {
                 machingSkills.add(skill.getText());
             }
@@ -48,6 +61,7 @@ public class CandidatePage {
         candidate.setContactPerson(contact);
         candidate.setSkills(machingSkills);
         return candidate;
+
     }
 }
 

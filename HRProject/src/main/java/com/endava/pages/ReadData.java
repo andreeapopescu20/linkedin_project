@@ -44,7 +44,7 @@ public class ReadData {
                 }
             } else if (sheetName.equals("Sheet1")) {
                 for (int j = 0; j < (row.getLastCellNum() - 1); j++) {
-                    employees.add(row.getCell(j).getStringCellValue()+" "+row.getCell(j+1).getStringCellValue());
+                    employees.add(row.getCell(j).getStringCellValue() + " " + row.getCell(j + 1).getStringCellValue());
                 }
             } else if (sheetName.equals("Sheet2")) {
                 for (int j = 0; j < row.getLastCellNum(); j++) {
@@ -52,7 +52,6 @@ public class ReadData {
                 }
             }
         }
-
         if (sheetName.equals("Sheet1")) {
             return employees;
         } else if (sheetName.equals("Sheet2")) {
@@ -62,7 +61,7 @@ public class ReadData {
         }
         return null;
     }
-
+}
 
 /*
     public static void main(String arg[]) throws IOException {
@@ -79,7 +78,7 @@ public class ReadData {
 
     }
 */
-}
+
 
 
 
